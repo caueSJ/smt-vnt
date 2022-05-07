@@ -1,8 +1,0 @@
-:host {
-    --main-gradient: linear-gradient(to left, #c00f4f, #8a1f6e);
-    --white: #ffffff;
-}
-
-* {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
