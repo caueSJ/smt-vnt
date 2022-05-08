@@ -31,7 +31,7 @@ export default class Header extends HTMLElement {
         <header>
             <div class="header-brand">
                 <img class="logo" src="./images/logo-vnt.svg" />
-                <h2>Squad Managment Tool</h2>
+                <h1>Squad Managment Tool</h1>
             </div>
             <div class="header-user">
                 <p>${userName}</p>

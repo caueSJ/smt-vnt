@@ -1,12 +1,13 @@
 header {
     display: flex;
     flex-wrap: wrap;
-    background: var(--header-gradient);
-    color: var(--text-white);
+    background: linear-gradient(to right, var(--pink), var(--purple));
+    color: var(--white);
     align-items: center;
     justify-content: space-between;
     padding: 10px 50px;
-    box-shadow: 0px 1px 2px 0px #868E96;
+    position: relative;
+    box-shadow: 0px 1px 2px 0px var(--box-shadow);
 
     .header-brand {
         display: flex;
@@ -14,7 +15,7 @@ header {
         column-gap: 20px;
 
         h1 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
         }
     }
@@ -37,7 +38,7 @@ header {
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            background: var(--bg-color-white);
+            background: var(--white);
             cursor: pointer;
             display: flex;
             align-items: center;
