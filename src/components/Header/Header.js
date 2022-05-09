@@ -30,8 +30,10 @@ export default class Header extends HTMLElement {
         template.innerHTML = `
         <header>
             <div class="header-brand">
-                <img class="logo" src="./images/logo-vnt.svg" />
-                <h1>Squad Managment Tool</h1>
+                <a href="/">
+                    <img class="logo" src="./images/logo-vnt.svg" />
+                    <h1>Squad Managment Tool</h1>
+                </a>
             </div>
             <div class="header-user">
                 <p>${userName}</p>

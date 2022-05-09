@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squad Management Tool</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script type="module" src="./src/js/home-script.js"></script>
 </head>
 <body>
     <cmp-header user-name="Cauê Jesus"></cmp-header>
@@ -15,59 +19,14 @@
                 <a class="btn-add-team" href="./team.html">+</a>
             </div>
             <div class="content">
-                <table>
+                <table id="teamsTable">
                     <thead>
                         <tr>
-                            <th>Name <img title="Sort by name" src="./images/icons/sort-solid.svg" alt="Sort by name"></th>
-                            <th colspan="2">Description <img title="Sort by description" src="./images/icons/sort-solid.svg" alt="Sort by description"></th>
+                            <th>Name <i class="fa-solid fa-sort" alt="Sort by name" title="Sort by name" data-sort="name" data-order="0"></i></th>
+                            <th colspan="2">Description <i class="fa-solid fa-sort" alt="Sort by description" title="Sort by description" data-sort="description" data-order="0"></i></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Barcelona</td>
-                            <td>Barcelona Squad</td>
-                            <td>
-                                <div class="action-icons">
-                                    <img title="Delete" src="./images/icons/trash-solid.svg" alt="Delete">
-                                    <img title="Share" src="./images/icons/share-nodes-solid.svg" alt="Share">
-                                    <img title="Edit" src="./images/icons/pen-solid.svg" alt="Edit">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Barcelona</td>
-                            <td>Barcelona Squad</td>
-                            <td>
-                                <div class="action-icons">
-                                    <img title="Delete" src="./images/icons/trash-solid.svg" alt="Delete">
-                                    <img title="Share" src="./images/icons/share-nodes-solid.svg" alt="Share">
-                                    <img title="Edit" src="./images/icons/pen-solid.svg" alt="Edit">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Barcelona</td>
-                            <td>Barcelona Squad</td>
-                            <td>
-                                <div class="action-icons">
-                                    <img title="Delete" src="./images/icons/trash-solid.svg" alt="Delete">
-                                    <img title="Share" src="./images/icons/share-nodes-solid.svg" alt="Share">
-                                    <img title="Edit" src="./images/icons/pen-solid.svg" alt="Edit">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Barcelona</td>
-                            <td>Barcelona Squad</td>
-                            <td>
-                                <div class="action-icons">
-                                    <img title="Delete" src="./images/icons/trash-solid.svg" alt="Delete">
-                                    <img title="Share" src="./images/icons/share-nodes-solid.svg" alt="Share">
-                                    <img title="Edit" src="./images/icons/pen-solid.svg" alt="Edit">
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </section>
@@ -78,25 +37,13 @@
                 </div>
                 <div class="content">
                     <div class="avg-age">
-                        <div class="avg-age-content">
+                        <div id="highAgeAvg" class="avg-age-content">
                             <p>Highest avg age</p>
-                            <ul>
-                                <li>Inter Milan <span>31.9</span></li>
-                                <li>APOEL Nicosia <span>31.7</span></li>
-                                <li>AC Milan <span>31.6</span></li>
-                                <li>Besitk JK <span>31.5</span></li>
-                                <li>Olympiacos Piraeus <span>31.4</span></li>
-                            </ul>
+                            <ul></ul>
                         </div>
-                        <div class="avg-age-content">
+                        <div id="lowAgeAvg" class="avg-age-content">
                             <p>Lowest avg age</p>
-                            <ul>
-                                <li>Besitk JK <span>21.9</span></li>
-                                <li>Inter Milan <span>21.7</span></li>
-                                <li>Olympiacos Piraeus <span>21.6</span></li>
-                                <li>APOEL Nicosia <span>21.5</span></li>
-                                <li>AC Milan <span>21.4</span></li>
-                            </ul>
+                            <ul></ul>
                         </div>
                     </div>
                 </div>
@@ -130,6 +77,5 @@
         </div>
     </div>
     <cmp-footer></cmp-footer>
-    <script type="module" src="./src/js/home-script.js"></script>
 </body>
 </html>

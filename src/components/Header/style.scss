@@ -10,13 +10,17 @@ header {
     box-shadow: 0px 1px 2px 0px var(--box-shadow);
 
     .header-brand {
-        display: flex;
-        align-items: center;
-        column-gap: 20px;
+        a {
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            text-decoration: none;
+            color: inherit;
 
-        h1 {
-            font-size: 1.25rem;
-            font-weight: 600;
+            h1 {
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
         }
     }
 
