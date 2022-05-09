@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squad Management Tool</title>
+</head>
+<body>
+    <cmp-header user-name="Cauê Jesus"></cmp-header>
+    <div id="teamPage" class="main">
+        <section class="info-block">
+            <div class="header">
+                <h2>Create your team</h2>
+            </div>
+            <div class="content">
+                <form action="">
+                    <section class="team-information">
+                        <h2>Team Information</h2>
+                        <div>
+                            <div class="form-group">
+                                <label for="teamName">Team name</label>
+                                <input type="text" name="name" id="teamName" value="" placeholder="Insert team name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="teamDescription">Description</label>
+                                <input type="textarea" name="description" id="teamDescription" value="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group radio">
+                                <label for="teamWebsite">Team website</label>
+                                <input type="url" name="website" id="teamWebsite" value="" placeholder="https://myteam.com" required>
+                            </div>
+                            <fieldset class="form-group">
+                                <label>Team type</label>
+                                <div class="radio">
+                                    <div>
+                                        <input type="radio" name="type" id="teamReal" required><label for="teamReal">Real</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="type" id="teamFantasy" required><label for="teamFantasy">Fantasy</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group">
+                                <label for="teamTags">Tags</label>
+                                <input type="textarea" name="tags" id="teamTags" value="" placeholder="Type tag and and press enter or ,">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="configure-squad">
+                        <h2>Configure Squad</h2>
+                        <div>
+                            <div class="form-group formation">
+                                <label for="teamFormation">Formation</label>
+                                <select name="formation" id="teamFormation">
+                                    <option value="1">3 - 2 - 2 - 3</option>
+                                    <option value="2">3 - 2 - 3 - 1</option>
+                                    <option value="3">3 - 4 - 3</option>
+                                    <option value="4">3 - 5 - 2</option>
+                                    <option value="4">4 - 2 - 3 - 1</option>
+                                    <option value="6">4 - 3 - 1 - 1</option>
+                                    <option value="7">4 - 3 - 2</option>
+                                    <option value="8">4 - 4 - 2</option>
+                                    <option value="9">4 - 5 - 1</option>
+                                    <option value="10">5 - 4 -1</option>
+                                </select>
+                            </div>
+                            <div class="soccer-field">                                
+                            </div>
+                        </div>
+                        <div class="search-players">
+                            <div class="form-group">
+                                <label for="searchPlayer">Search Players</label>
+                                <input type="search" name="tags" id="searchPlayer" placeholder="Search by a player name">
+                            </div>
+                            <div>
+                                <ul clas="players-list">
+                                    <li class="player-infos">
+                                        <div>
+                                            <div>
+                                                <b>Name:</b>
+                                                <p>Cristiano Ronaldo</p>
+                                            </div>
+                                            <div>
+                                                <b>Nationality:</b>
+                                                <p>Portugal</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <b>Age:</b>
+                                                <p>32</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="player-infos">
+                                        <div>
+                                            <div>
+                                                <b>Name:</b>
+                                                <p>Ronaldo Luiz de Alves</p>
+                                            </div>
+                                            <div>
+                                                <b>Nationality:</b>
+                                                <p>Brazil</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <b>Age:</b>
+                                                <p>28</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="player-infos">
+                                        <div>
+                                            <div>
+                                                <b>Name:</b>
+                                                <p>Ronaldo da Silva de Souza</p>
+                                            </div>
+                                            <div>
+                                                <b>Nationality:</b>
+                                                <p>Brazil</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <b>Age:</b>
+                                                <p>18</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <cmp-footer></cmp-footer>
+    <script type="module" src="./src/js/team-script.js"></script>
+</body>
+</html>

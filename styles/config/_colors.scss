@@ -1,19 +1,21 @@
-:root {
-    --text-primary: #333333;
-    --text-secondary: #505050;
+:root {    
+    --white: #ffffff;
+    --black: #343a40;
 
     --purple: #8a1f6e;
+    --purple-light: #bb588f;
     --purple-blue: #552c8a;
+    
     --pink: #c00f4f;
-    --pink-light: #bb588f;
-    --white: #ffffff;
+    --pink-light: #f7eef7;
 
-    // Background Colors
-    --bg-color-main: #f7f3f7;
-    --bg-color-light: #ced4da;
-    --bg-color-dark: #e9e3e8;
-    --bg-color-table: #f7eef7;
-    --bg-color-footer: #e9e3e9;
+    --gray: #adb5bd;
+    --gray-light: #dee2e6;
+    --gray-lighter: #f7f3f7;
+    --gray-dark: #868e96;
+    
+    --bg-gray-dark: #e9e3e8;
+    --bg-gray-light: #ced4da;
 
     --box-shadow: rgba(0,0,0,0.3);
 }

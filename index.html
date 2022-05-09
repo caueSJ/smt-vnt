@@ -8,11 +8,11 @@
 </head>
 <body>
     <cmp-header user-name="Cauê Jesus"></cmp-header>
-    <div class="main">
+    <div id="homePage" class="main">
         <section class="info-block">
             <div class="header">
                 <h2>My teams</h2>
-                <div class="btn-add-team">+</div>
+                <a class="btn-add-team" href="./team.html">+</a>
             </div>
             <div class="content">
                 <table>
@@ -28,9 +28,9 @@
                             <td>Barcelona Squad</td>
                             <td>
                                 <div class="action-icons">
-                                    <img src="./images/icons/trash-solid.svg" alt="Delete">
-                                    <img src="./images/icons/share-nodes-solid.svg" alt="">
-                                    <img src="./images/icons/pen-solid.svg" alt="">
+                                    <img title="Delete" src="./images/icons/trash-solid.svg" alt="Delete">
+                                    <img title="Share" src="./images/icons/share-nodes-solid.svg" alt="Share">
+                                    <img title="Edit" src="./images/icons/pen-solid.svg" alt="Edit">
                                 </div>
                             </td>
                         </tr>
@@ -39,9 +39,9 @@
                             <td>Barcelona Squad</td>
                             <td>
                                 <div class="action-icons">
-                                    <img src="./images/icons/trash-solid.svg" alt="Delete">
-                                    <img src="./images/icons/share-nodes-solid.svg" alt="">
-                                    <img src="./images/icons/pen-solid.svg" alt="">
+                                    <img title="Delete" src="./images/icons/trash-solid.svg" alt="Delete">
+                                    <img title="Share" src="./images/icons/share-nodes-solid.svg" alt="Share">
+                                    <img title="Edit" src="./images/icons/pen-solid.svg" alt="Edit">
                                 </div>
                             </td>
                         </tr>
@@ -50,9 +50,9 @@
                             <td>Barcelona Squad</td>
                             <td>
                                 <div class="action-icons">
-                                    <img src="./images/icons/trash-solid.svg" alt="Delete">
-                                    <img src="./images/icons/share-nodes-solid.svg" alt="">
-                                    <img src="./images/icons/pen-solid.svg" alt="">
+                                    <img title="Delete" src="./images/icons/trash-solid.svg" alt="Delete">
+                                    <img title="Share" src="./images/icons/share-nodes-solid.svg" alt="Share">
+                                    <img title="Edit" src="./images/icons/pen-solid.svg" alt="Edit">
                                 </div>
                             </td>
                         </tr>
@@ -61,9 +61,9 @@
                             <td>Barcelona Squad</td>
                             <td>
                                 <div class="action-icons">
-                                    <img src="./images/icons/trash-solid.svg" alt="Delete">
-                                    <img src="./images/icons/share-nodes-solid.svg" alt="">
-                                    <img src="./images/icons/pen-solid.svg" alt="">
+                                    <img title="Delete" src="./images/icons/trash-solid.svg" alt="Delete">
+                                    <img title="Share" src="./images/icons/share-nodes-solid.svg" alt="Share">
+                                    <img title="Edit" src="./images/icons/pen-solid.svg" alt="Edit">
                                 </div>
                             </td>
                         </tr>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
             </section>
-            <section class="picked-container vertical-divider">
+            <article class="picked-container vertical-divider">
                 <div>
                     <h3>Most picked player</h3>
                     <div class="picked-player">
@@ -126,10 +126,10 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </article>
         </div>
     </div>
     <cmp-footer></cmp-footer>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./src/js/home-script.js"></script>
 </body>
 </html>
