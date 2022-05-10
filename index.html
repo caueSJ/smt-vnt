@@ -7,8 +7,10 @@
     <title>Squad Management Tool</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <script type="module" src="./src/js/home-script.js"></script>
+    <link rel="stylesheet" href="./src/styles/css/reset.css" />
+    <link rel="stylesheet" href="./src/styles/css/global.css" />
+    <link rel="stylesheet" href="./src/styles/css/main.css" />
+    <link rel="stylesheet" href="./src/styles/css/home-style.css" />
 </head>
 <body>
     <cmp-header user-name="Cauê Jesus"></cmp-header>
@@ -51,25 +53,21 @@
             <article class="picked-container vertical-divider">
                 <div>
                     <h3>Most picked player</h3>
-                    <div class="picked-player">
+                    <div id="mostPickedPlayer" class="picked-player">
                         <div class="most-picked">
-                            <div class="player-photo">
-                                <span>CR</span>
-                            </div>
+                            <div class="player-photo"></div>
                         </div>
                         <div class="percentage">
-                            <span>75%</span>
+                            <span></span>
                         </div>
                     </div>
                 </div>
                 <div>
                     <h3>Less picked player</h3>
-                    <div class="picked-player">
-                        <div class="player-photo">
-                            <span>NJ</span>
-                        </div>
+                    <div id="lessPickedPlayer" class="picked-player">
+                        <div class="player-photo"></div>
                         <div class="percentage">
-                            <span>25%</span>
+                            <span></span>
                         </div>
                     </div>
                 </div>
@@ -77,5 +75,8 @@
         </div>
     </div>
     <cmp-footer></cmp-footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="module" src="./src/js/home-script.js"></script>
 </body>
 </html>

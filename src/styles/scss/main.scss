@@ -1,17 +1,24 @@
 @import './config/breakpoints';
 
+body {
+    min-width: 360px;
+}
+
 .main {
     background: var(--gray-lighter);
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
-    padding: 15px;    
+    flex-direction: column;
+    padding: 15px;
     gap: 15px;
     width: 100%;
+    /* Calc main min-height (100vh = total height, 68px = header height, 50px = footer height) */
+    min-height: calc(100vh - 68px - 50px);
 
     @include md {
         padding: 50px;
         gap: 50px;
+        flex-direction: row;
     }
 
     .info-block {

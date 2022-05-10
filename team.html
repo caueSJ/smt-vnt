@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squad Management Tool</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./src/styles/css/reset.css" />
+    <link rel="stylesheet" href="./src/styles/css/global.css" />
+    <link rel="stylesheet" href="./src/styles/css/main.css" />
+    <link rel="stylesheet" href="./src/styles/css/team-style.css" />
 </head>
 <body>
     <cmp-header user-name="Cauê Jesus"></cmp-header>
@@ -14,7 +20,7 @@
                 <h2>Create your team</h2>
             </div>
             <div class="content">
-                <form action="">
+                <form id="teamForm" action="">
                     <section class="team-information">
                         <h2>Team Information</h2>
                         <div>
@@ -37,10 +43,10 @@
                                     <label>Team type</label>
                                     <div class="radio">
                                         <div>
-                                            <input type="radio" name="type" id="teamReal" required><label for="teamReal">Real</label>
+                                            <input type="radio" name="type" id="teamReal" value="real" required><label for="teamReal">Real</label>
                                         </div>
                                         <div>
-                                            <input type="radio" name="type" id="teamFantasy" required><label for="teamFantasy">Fantasy</label>
+                                            <input type="radio" name="type" id="teamFantasy" value="fantasy" required><label for="teamFantasy">Fantasy</label>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -79,47 +85,7 @@
                                     <input type="search" name="tags" id="searchPlayer" placeholder="Type a player name to search">
                                 </div>
                                 <div class="search-players-results">
-                                    <ul class="players-list">
-                                        <li class="player-infos">
-                                            <div>
-                                                <div>
-                                                    <span><b>Name:</b> Cristiano Ronaldo</span> 
-                                                </div>
-                                                <div>
-                                                    <span><b>Nationality:</b> Portugal</span>
-                                                </div>
-                                            </div>
-                                            <div>                                                
-                                                <span><b>Age:</b> 34</span>
-                                            </div>
-                                        </li>
-                                        <li class="player-infos">
-                                            <div>
-                                                <div>
-                                                    <span><b>Name:</b> Ronaldo Luiz de Alves</span>
-                                                </div>
-                                                <div>
-                                                    <span><b>Nationality:</b> Brazil</span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <span><b>Age:</b> 28</span>
-                                            </div>
-                                        </li>
-                                        <li class="player-infos">
-                                            <div>
-                                                <div>
-                                                    <span><b>Name:</b> Ronaldo da Silva de Souza</span>
-                                                </div>
-                                                <div>
-                                                    <span><b>Nationality:</b> Brazil</span>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <span><b>Age:</b> 19</span>                                                
-                                            </div>
-                                        </li>
-                                    </ul>
+                                    <ul class="players-list"></ul>
                                 </div>
                             </div>
                         </div>
@@ -130,6 +96,8 @@
         </section>
     </div>
     <cmp-footer></cmp-footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="module" src="./src/js/team-script.js"></script>
 </body>
 </html>

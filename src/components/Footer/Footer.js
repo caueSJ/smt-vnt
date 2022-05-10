@@ -1,5 +1,5 @@
 import css from './style.scss';
-import { getYear } from '../../utils';
+import { getYear } from '../../js/utils';
 
 export default class Footer extends HTMLElement {
     constructor() {

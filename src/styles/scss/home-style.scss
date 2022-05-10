@@ -58,16 +58,9 @@
             font-size: 1.125rem;
             font-weight: bold;
 
-            &.horizontal-divider {
-                background: linear-gradient(rgba(247, 243, 247, 0.2) 50%, rgba(247, 243, 247, 0.2) 50%) 0 50% / 100% 0.1em,
-                            radial-gradient(100% 100%, transparent 2.5em, rgba(247, 243, 247, 0.2) 2.55em, rgba(247, 243, 247, 0.2) 2.6em, transparent 0.5em) calc(50% - 1em) 50% / 6.25em 6.25em,
-                            linear-gradient(to bottom, var(--purple-light), var(--purple-blue)) 0 0 / 100% 100%;
-                background-repeat: no-repeat;
-            }
-
             &.vertical-divider {
-                background: linear-gradient(rgba(247, 243, 247, 0.2) 50%, rgba(247, 243, 247, 0.2) 50%) calc(50% - 1em) 0 / 0.1em 100%,
-                            radial-gradient(100% 100%, transparent 2.5em, rgba(247, 243, 247, 0.2) 2.55em, rgba(247, 243, 247, 0.2) 2.6em, transparent 0.5em) calc(50% - 1em) 50% / 6.25em 6.25em,
+                background: linear-gradient(var(--gray-transparent) 50%, var(--gray-transparent) 50%) 50% 0 / 0.1em 100%,
+                            radial-gradient(transparent 1.8em, var(--gray-transparent) 1.95em, transparent 0.5em) 50% 50% / 5em 5em,
                             linear-gradient(to bottom, var(--purple-light), var(--purple-blue)) 0 0 / 100% 100%;
                 background-repeat: no-repeat;
             }

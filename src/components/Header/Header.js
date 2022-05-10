@@ -1,5 +1,5 @@
 import css from './style.scss';
-import { getInitialLetters } from '../../utils';
+import { getInitialLetters } from '../../js/utils';
 
 export default class Header extends HTMLElement {
     constructor() {
@@ -59,8 +59,8 @@ export default class Header extends HTMLElement {
 
     updateName(newName) {
         const shadow = this.shadowRoot;
-        shadow.querySelector('.header-user > p').textContent = newName;
-        shadow.querySelector('.header-user > div > p').textContent = getInitialLetters(newName);
+        shadow.querySelector('.header-user > span').textContent = newName;
+        shadow.querySelector('.header-user > div > span').textContent = getInitialLetters(newName);
     }
 }
 

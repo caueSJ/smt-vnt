@@ -1,0 +1,170 @@
+@media (min-width: 992px) {
+  #teamPage form {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+#teamPage form section > h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 30px;
+  text-align: center;
+}
+#teamPage form .form-group {
+  margin: 15px 0;
+  font-size: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+}
+#teamPage form .form-group label {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+#teamPage form .form-group input, #teamPage form .form-group textarea, #teamPage form .form-group select {
+  padding: 10px;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  border: 1px solid var(--gray-light);
+}
+#teamPage form .form-group input::placeholder, #teamPage form .form-group textarea::placeholder, #teamPage form .form-group select::placeholder {
+  color: var(--gray);
+}
+#teamPage form .form-group input[type=radio], #teamPage form .form-group textarea[type=radio], #teamPage form .form-group select[type=radio] {
+  display: none;
+}
+#teamPage form .form-group select {
+  background: var(--white);
+  font-weight: 500;
+}
+#teamPage form .form-group textarea {
+  resize: none;
+}
+#teamPage form .form-group div > input[type=radio] + *::before {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  border: 1px solid var(--gray);
+  border-radius: 50%;
+}
+#teamPage form .form-group div > input[type=radio]:checked + *::before {
+  background: radial-gradient(var(--purple) 0%, var(--purple) 40%, transparent 50%, transparent);
+  border-color: var(--pink);
+}
+#teamPage form .form-group div > input[type=radio]:checked + * {
+  color: var(--pink);
+}
+#teamPage form .form-group .radio {
+  display: flex;
+  column-gap: 40px;
+}
+#teamPage form .form-group .radio label {
+  font-weight: 400;
+  color: var(--gray-dark);
+}
+#teamPage form .form-group:focus-within input, #teamPage form .form-group:focus-within textarea, #teamPage form .form-group:focus-within select {
+  outline: 1px solid var(--pink);
+}
+#teamPage form .form-group:focus-within label {
+  color: var(--pink);
+}
+@media (min-width: 768px) {
+  #teamPage form .team-information > div {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 20px;
+  }
+}
+#teamPage form .team-information > div > div {
+  flex: 1;
+}
+#teamPage form .team-information .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#teamPage form .configure-squad {
+  margin-bottom: 20px;
+}
+#teamPage form .configure-squad h2 {
+  margin-top: 30px;
+}
+@media (min-width: 768px) {
+  #teamPage form .configure-squad h2 {
+    margin-top: 60px;
+  }
+  #teamPage form .configure-squad > div {
+    display: flex;
+    gap: 50px;
+  }
+  #teamPage form .configure-squad > div > div {
+    flex: 1;
+  }
+}
+#teamPage form .soccer-field {
+  width: 100%;
+  height: 700px;
+  background: linear-gradient(var(--purple-light), var(--purple));
+  border-radius: 5px;
+  display: grid;
+}
+#teamPage form .soccer-field.horizontal-divider {
+  background: linear-gradient(var(--gray-transparent) 50%, var(--gray-transparent) 50%) 0 50%/100% 0.1em, radial-gradient(transparent 3em, var(--gray-transparent) 3.15em, transparent 0.5em) 50% 50%/10em 10em, linear-gradient(to bottom, var(--purple-light), var(--purple-blue)) 0 0/100% 100%;
+  background-repeat: no-repeat;
+}
+#teamPage form .search-players-results ul.players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-bottom: 10px;
+  font-size: 0.9375rem;
+  border-bottom: 1px solid var(--gray-light);
+}
+#teamPage form .search-players-results ul.players-list li.player-infos {
+  padding: 15px;
+  border-radius: 5px;
+  outline: 2px dashed var(--bg-gray-light);
+  background: linear-gradient(var(--white), var(--gray-light));
+  display: flex;
+  justify-content: space-between;
+  min-height: 80px;
+  overflow: hidden;
+}
+#teamPage form .search-players-results ul.players-list li.player-infos span {
+  color: var(--pink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#teamPage form .search-players-results ul.players-list li.player-infos span b {
+  color: var(--black);
+  font-weight: 600;
+}
+#teamPage form .search-players-results ul.players-list li.player-infos div:first-child {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+#teamPage form button {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--white);
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(var(--purple-light) 25%, var(--purple));
+  border-radius: 5px;
+  border: 1px solid var(--pink);
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  #teamPage form button {
+    width: calc(50% - 25px);
+  }
+}
+
+/*# sourceMappingURL=team-style.css.map */
