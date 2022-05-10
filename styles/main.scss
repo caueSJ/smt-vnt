@@ -1,11 +1,18 @@
+@import './config/breakpoints';
+
 .main {
     background: var(--gray-lighter);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 50px;
-    column-gap: 50px;
+    padding: 15px;    
+    gap: 15px;
     width: 100%;
+
+    @include md {
+        padding: 50px;
+        gap: 50px;
+    }
 
     .info-block {
         flex: 1;

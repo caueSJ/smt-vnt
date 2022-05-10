@@ -1,14 +1,22 @@
+@import './config/breakpoints';
+
 #teamPage {
     form {
+        @include lg {
+            width: 80%;
+            margin: 0 auto;
+        }
+
         section > h2 {
             font-weight: 600;
             text-transform: uppercase;
             color: var(--gray);
             margin-bottom: 30px;
+            text-align: center;
         }
 
         .form-group {
-            margin: 30px 0;
+            margin: 15px 0;
             font-size: 0.9375rem;
             display: flex;
             flex-direction: column;
@@ -18,45 +26,176 @@
                 margin-bottom: 10px;
             }
 
-            input {
+            input, textarea, select {
                 padding: 10px;
                 border-radius: 5px;
+                font-family: inherit;
+                font-size: 0.875rem;
                 border: 1px solid var(--gray-light);
 
                 &::placeholder {
                     color: var(--gray);
                 }
+
+                &[type="radio"] {
+                    display: none;
+                }
+            }
+
+            select {
+                background: var(--white);
+                font-weight: 500;
+            }
+
+            textarea {
+                resize: none;
+            }
+
+            // RADIO INPUT STYLE
+            div > input[type="radio"] + *::before {
+                content: "";
+                display: inline-block;
+                vertical-align: bottom;
+                width: 1rem;
+                height: 1rem;
+                margin-right: 0.5rem;
+                border: 1px solid var(--gray);
+                border-radius: 50%;
+            }
+
+            div > input[type="radio"]:checked + *::before {
+                background: radial-gradient(var(--purple) 0%, var(--purple) 40%, transparent 50%, transparent);
+                border-color: var(--pink);
+            }
+
+            div > input[type="radio"]:checked + * {
+                color: var(--pink);
             }
 
             .radio {
                 display: flex;
                 column-gap: 40px;
 
-                input[type="radio"] {
-                    appearance: none;
-                    margin: 0;
-                    border-color: var(--gray-dark);
-                    border-radius: 50%;
-
-                    &::before {
-                        content: "";
-                        width: 0.65em;
-                        height: 0.65em;
-                        border-radius: 50%;
-                        transform: scale(0);
-                        transition: 120ms transform ease-in-out;
-                        box-shadow: inset 1em 1em var(--pink);
-                    }
+                & label {
+                    font-weight: 400;
+                    color: var(--gray-dark);
                 }
             }
 
+            // FOCUS STYLE
             &:focus-within {
-                input {
+                input, textarea, select {
                     outline: 1px solid var(--pink);
                 }
                 label {
                     color: var(--pink);
                 }
+            }
+        }
+
+        .team-information {
+            & > div {
+                @include md {
+                    display: flex;
+                    gap: 50px;
+                    margin-bottom: 20px;
+                }
+
+                & > div {
+                    flex: 1;
+                }
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+
+        .configure-squad {
+            margin-bottom: 20px;
+
+            @include md {
+                & > div {
+                    display: flex;
+                    gap: 50px;
+
+                    & > div {
+                        flex: 1;
+                    }
+                }
+            }
+        }
+
+        .soccer-field {
+            width: 100%;
+            height: 700px;
+            background: linear-gradient(var(--purple-light), var(--purple));
+            border-radius: 5px;
+            display: grid;
+
+            &.horizontal-divider {
+                background: linear-gradient(rgba(247, 243, 247, 0.2) 50%, rgba(247, 243, 247, 0.2) 50%) 0 50% / 100% 0.1em,
+                            radial-gradient(100% 100%, transparent 2.5em, rgba(247, 243, 247, 0.2) 2.55em, rgba(247, 243, 247, 0.2) 2.6em, transparent 0.5em) calc(50% - 1em) 50% / 6.25em 6.25em,
+                            linear-gradient(to bottom, var(--purple-light), var(--purple-blue)) 0 0 / 100% 100%;
+                            background-repeat: no-repeat;
+            }
+        }
+
+        .search-players-results {
+            ul.players-list {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                padding-bottom: 10px;
+                font-size: 0.9375rem;
+                border-bottom: 1px solid var(--gray-light);
+
+                li.player-infos {
+                    padding: 15px;
+                    border-radius: 5px;
+                    outline: 2px dashed var(--bg-gray-light);
+                    background: linear-gradient(var(--white), var(--gray-light));
+                    display: flex;
+                    justify-content: space-between;
+                    min-height: 80px;
+                    overflow: hidden;
+
+                    span {
+                        color: var(--pink);
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        b {
+                            color: var(--black);
+                            font-weight: 600;
+                        }
+                    }
+
+                    div:first-child {
+                        flex: 1;
+                        display: flex;
+                        flex-flow: column wrap;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+
+        button {
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--white);
+            width: 100%;
+            height: 48px;
+            background: linear-gradient(var(--purple-light) 25%, var(--purple));
+            border-radius: 5px;
+            border: 1px solid var(--pink);
+            cursor: pointer;
+
+            @include md {
+                width: calc(50% - 25px);
             }
         }
     }

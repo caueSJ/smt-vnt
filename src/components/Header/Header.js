@@ -36,9 +36,9 @@ export default class Header extends HTMLElement {
                 </a>
             </div>
             <div class="header-user">
-                <p>${userName}</p>
+                <span class="name">${userName}</span>
                 <div title="User Profile Picture">
-                    <p>${getInitialLetters(userName)}</p>
+                    <span>${getInitialLetters(userName)}</span>
                 </div>
             </div>
         </header>
