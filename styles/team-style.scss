@@ -116,7 +116,14 @@
         .configure-squad {
             margin-bottom: 20px;
 
+            h2 {
+                margin-top: 30px;
+            }
+
             @include md {
+                h2 {
+                    margin-top: 60px;
+                }
                 & > div {
                     display: flex;
                     gap: 50px;
