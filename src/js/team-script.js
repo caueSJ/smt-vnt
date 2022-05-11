@@ -1,18 +1,18 @@
 import './global.js';
+import '../components/ChoosePlayer/ChoosePlayer';
 
-import { parseQueryString } from './utils/index.js';
+import { getUrlParams } from './utils/index.js';
 import { getTeam } from './storage/team-storage';
-import { addPageEvents, loadTeamData } from './functions/team-page-functions.js';
+import { addPageEvents, loadTeamData, initSearch } from './functions/team-page-functions.js';
 
-window.addEventListener('resourcesLoaded', function(event) {
-    const urlSearch =  window.location.search.slice(1); // Remove ? at the start of the string
+window.addEventListener('resourcesLoaded', async (event) => {
+    const params =  getUrlParams();
 
-    if(urlSearch) {
-        const params = parseQueryString(urlSearch);
+    if(params.id) {
         const team = getTeam(+params.id);
-
         loadTeamData(team);
     }
     
     addPageEvents();
+    initSearch();
 });

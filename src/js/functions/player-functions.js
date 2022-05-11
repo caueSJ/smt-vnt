@@ -1,18 +1,22 @@
 import { get, getInitialLetters } from '../utils';
-import { getPlayers } from '../storage/player-storage';
+import { getPlayer, getPlayers } from '../storage/player-storage';
 
 export const loadPlayers = async (league) => {
     let players = getPlayers();
 
     if (players.length > 0) {
-        return players;
+        return {
+            players,
+            playersTeam: [],
+        };
     }
 
     players = [];
-    
-    const response = await get(`players?league=${league.league.id}&season=${league.seasons[0].year}`);
+    const playersTeam = [];
 
-    response.response.forEach(data => {
+    const response = await loadPlayersData(league);
+
+    response.forEach(data => {
         players.push({
             id: data.player.id, 
             name: data.player.name, 
@@ -20,9 +24,32 @@ export const loadPlayers = async (league) => {
             age: data.player.age, 
             photo: data.player.photo,
         });
+        playersTeam.push({
+            playerId: data.player.id,
+            teamId: data.statistics[0].team.id,
+        });
     });
 
-    return players;
+    return {
+        players,
+        playersTeam,
+    };
+};
+
+const loadPlayersData = async (league, page = 1, playersData = []) => {
+    const data = await loadPlayersPerPage(league, page);
+    playersData = playersData.concat(data.response);
+
+    if(data.paging.current < data.paging.total) {
+        playersData = await loadPlayersData(league, data.paging.current + 1, playersData);
+    }
+
+    return playersData;
+};
+
+export const loadPlayersPerPage = async (league, page) => {
+    const response = await get(`players?league=${league.league.id}&season=${league.seasons[0].year}&page=${page}`);
+    return response;
 };
 
 export const playersPicks = (teams) => {
@@ -39,11 +66,10 @@ export const playersPicks = (teams) => {
     });
 
     const picksArray = [];
-    const players = getPlayers();
     const playersId = Object.keys(picks);
 
     playersId.forEach(playerId => {
-        const player = players.find(player => player.id === +playerId);
+        const player = getPlayer(+playerId);
         const pickRate = parseInt(picks[playerId] / teams.length * 100) + '%';
 
         picksArray.push({

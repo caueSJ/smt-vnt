@@ -13,9 +13,22 @@ export const getPlayers = () => {
     return JSON.parse(stringPlayers);
 };
 
+export const getPlayer = (playerId) => {
+    const stringPlayers = localStorage.getItem('smt-players');
+
+    if(!stringPlayers) {
+        return null;
+    }
+
+    const players = JSON.parse(stringPlayers);
+    const player = players.find(player => player.id === playerId);
+
+    return player || null;
+};
+
 export const searchPlayers = (search) => {
     if(!search.trim()) {
-        return [];
+        return getPlayers();
     }
     
     const players = getPlayers();

@@ -11,11 +11,11 @@ import { loadLeague } from './functions/league-functions';
 
 window.addEventListener('load', async (event) => {
     const league = await loadLeague();
-    const players = await loadPlayers(league);
-    const teams = await loadTeams(league);
+    const playerData = await loadPlayers(league);
+    const teams = await loadTeams(league, playerData.playersTeam);
 
     setLeague(league);
-    setPlayers(players);
+    setPlayers(playerData.players);
     setTeams(teams);
 
     const resourcesLoaded = new CustomEvent('resourcesLoaded');

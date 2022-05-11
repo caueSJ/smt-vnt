@@ -212,6 +212,13 @@
                 margin: 10px;
                 outline: 2px dashed var(--purple);
                 outline-offset: 5px;
+
+                &:empty {
+                    &::before {
+                        content: '+';
+                        font-size: 1.5em;
+                    }
+                }
             }
         }
 

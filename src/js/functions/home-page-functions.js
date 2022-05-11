@@ -74,9 +74,7 @@ export const listTop5 = (teams) => {
 
 export const updateStatistic = (statId, info) => {
     const stat = document.querySelector(`#${statId}`);
-    const display = info.player.photo ? 
-        `<img src="${info.player.photo}" alt="${info.player.initials}" title="${info.player.name}" />`
-        : `<span title="${info.player.name}">${info.player.initials}</span>`
+    const display = `<span title="${info.player.name}">${info.player.initials}</span>`;
 
     stat.querySelector('.percentage span').textContent = info.percentage;
     stat.querySelector('.player-photo').innerHTML = display;

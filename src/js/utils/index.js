@@ -3,7 +3,11 @@ import { FOOTBALL_API_URL, FOOTBALL_HEADERS } from '../constants';
 export const getYear = () => {
     const date = new Date();
     return date.getFullYear();
-}
+};
+
+export const getCapitalFirstLetter = (word) => {
+  return word.charAt(0).toUpperCase();
+};
 
 export const getInitialLetters = (name) => {
     if (!name) {
@@ -11,10 +15,13 @@ export const getInitialLetters = (name) => {
     }
 
     const nameSplited = name.split(' ');
-    const initials = nameSplited.map((name) => name.charAt(0));
 
-    return initials.join('').toUpperCase();
-}
+    if(nameSplited.length === 1) {
+      return getCapitalFirstLetter(nameSplited[0]);
+    }
+
+    return getCapitalFirstLetter(nameSplited[0]) + getCapitalFirstLetter(nameSplited[nameSplited.length - 1]);
+};
 
 /*
  * Based on https://stackoverflow.com/questions/979975/get-the-values-from-the-get-parameters-javascript
@@ -40,7 +47,18 @@ export const parseQueryString = (query) => {
       }
     }
     return query_string;
-}
+};
+
+export const getUrlParams = () => {
+  const urlSearch =  window.location.search.slice(1); // Remove ? at the start of the string
+
+  if(urlSearch) {
+    const params = parseQueryString(urlSearch);
+    return params;
+  }
+
+  return {};
+};
 
 export const get = (endpoint) => {
   return $.ajax({

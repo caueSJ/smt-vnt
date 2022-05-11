@@ -199,6 +199,10 @@
   outline: 2px dashed var(--purple);
   outline-offset: 5px;
 }
+#teamPage form .soccer-field .player-circle:empty::before {
+  content: "+";
+  font-size: 1.5em;
+}
 #teamPage form .search-players-results {
   max-height: 700px;
   overflow-y: auto;

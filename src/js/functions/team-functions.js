@@ -1,10 +1,10 @@
 import { ORDER_ICON, ORDER_MAP, TEAM_TYPE } from '../constants.js';
 import { get } from '../utils/index.js';
 import { listTeams } from './home-page-functions.js';
-import { getPlayers } from '../storage/player-storage';
-import { getTeams } from '../storage/team-storage';
+import { getPlayer } from '../storage/player-storage';
+import { getTeams, setTeamBigId } from '../storage/team-storage';
 
-export const loadTeams = async (league) => {
+export const loadTeams = async (league, playersTeam) => {
     let teams = getTeams();
 
     if (teams.length > 0) {
@@ -16,15 +16,27 @@ export const loadTeams = async (league) => {
     const response = await get(`teams?league=${league.league.id}&season=${league.seasons[0].year}`);
 
     response.response.forEach(data => {
+        const playersInTeam = playersTeam.map(pt => {
+            if(pt.teamId === data.team.id) {
+                return pt.playerId;
+            }
+
+            return null;
+        }).filter(pt => pt !== null);
+
+        const fakeWebsite = `http://${data.team.name.replaceAll(' ', '-').toLowerCase()}.com`; // The API do not give one
+        
         teams.push({
             id: data.team.id, 
             name: data.team.name,
-            description: '',
-            website: '',
+            description: `${data.team.name} Squad`,
+            website: fakeWebsite,
             type: TEAM_TYPE.REAL,
-            players: [],
+            players: playersInTeam.slice(0,11),
             tags: [],
         });
+
+        setTeamBigId(data.team.id);
     });
 
     return teams;
@@ -56,7 +68,6 @@ export const sortTeams = (event) => {
 
 export const teamsAgeAvgs = (teams) => {
     const avgs = [];
-    const players = getPlayers();
 
     teams
         .filter(team => team.players.length > 0)
@@ -65,12 +76,12 @@ export const teamsAgeAvgs = (teams) => {
             let numPlayers = 0;
             
             team.players.forEach(playerId => {
-                const player = players.find(player => player.id === playerId);
+                const player = getPlayer(playerId);
                 totalAge += player.age;
                 numPlayers++;
             });
 
-            const avg = totalAge / numPlayers;
+            const avg = (totalAge / numPlayers).toLocaleString('en-US', { maximumFractionDigits: 1 });
             avgs.push({
                 team: {
                     id: team.id,
