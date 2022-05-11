@@ -35,8 +35,27 @@ export const search = (event) => {
     document.querySelector('.search-players-results .players-list').innerHTML = playersHTML;
 };
 
+export const insertTag = (event) => {
+    const newTag = event.currentTarget.value;
+    let tagList = [];
+    if ((event.keyCode === 13 || event.keyCode === 59) && tag.trim().length > 0) {
+        const tagDivs = Array.from(document.getElementsByClassName('tag'));
+        tagDivs.forEach(tag => {
+            tagList.push(tag.firstChild.innerText);
+        });
+        if (tagList.find(tag => tag === newTag)) {
+            return;
+        }
+
+        // Add new tag to tag list here
+        event.currentTarget.value = null;
+    }
+}
+
 export const addPageEvents = () => {
     const searchInput = document.getElementById('searchPlayer');
+    const tagInput = document.getElementById('tagInput');
+    tagInput.addEventListener('keydown', insertTag)
     searchInput.addEventListener('keyup', search);
     searchInput.addEventListener('search', search);
 };

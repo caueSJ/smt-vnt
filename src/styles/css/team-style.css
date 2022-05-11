@@ -1,7 +1,12 @@
-@media (min-width: 992px) {
+@media (min-width: 768px) {
+  #teamPage form {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
   #teamPage form {
     width: 80%;
-    margin: 0 auto;
   }
 }
 #teamPage form section > h2 {
@@ -72,6 +77,31 @@
 #teamPage form .form-group:focus-within label {
   color: var(--pink);
 }
+#teamPage form .form-group .input-tag {
+  height: 120px;
+  border: 1px solid var(--gray-light);
+  border-radius: 5px;
+  overflow: hidden;
+}
+#teamPage form .form-group .input-tag .tag-list {
+  padding: 10px;
+  height: 120px;
+}
+#teamPage form .form-group .input-tag .tag-list .tag {
+  border-radius: 15px;
+  display: inline-flex;
+  gap: 10px;
+  padding: 4px 8px;
+  color: var(--white);
+  background-color: var(--pink);
+}
+#teamPage form .form-group .input-tag .tag-list input {
+  appearance: none;
+  border: 0;
+}
+#teamPage form .form-group .input-tag .tag-list input:focus {
+  outline: none;
+}
 @media (min-width: 768px) {
   #teamPage form .team-information > div {
     display: flex;
@@ -111,10 +141,68 @@
   background: linear-gradient(var(--purple-light), var(--purple));
   border-radius: 5px;
   display: grid;
+  grid-template-areas: "P1 P2 P3" "P4 . P5" "P6 . P7" "P8 P9 P10" " . P11 . ";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  justify-items: center;
+  align-items: center;
+}
+#teamPage form .soccer-field .P1 {
+  grid-area: P1;
+}
+#teamPage form .soccer-field .P2 {
+  grid-area: P2;
+}
+#teamPage form .soccer-field .P3 {
+  grid-area: P3;
+}
+#teamPage form .soccer-field .P4 {
+  grid-area: P4;
+}
+#teamPage form .soccer-field .P5 {
+  grid-area: P5;
+}
+#teamPage form .soccer-field .P6 {
+  grid-area: P6;
+}
+#teamPage form .soccer-field .P7 {
+  grid-area: P7;
+}
+#teamPage form .soccer-field .P8 {
+  grid-area: P8;
+}
+#teamPage form .soccer-field .P9 {
+  grid-area: P9;
+}
+#teamPage form .soccer-field .P10 {
+  grid-area: P10;
+}
+#teamPage form .soccer-field .P11 {
+  grid-area: P11;
 }
 #teamPage form .soccer-field.horizontal-divider {
   background: linear-gradient(var(--gray-transparent) 50%, var(--gray-transparent) 50%) 0 50%/100% 0.1em, radial-gradient(transparent 3em, var(--gray-transparent) 3.15em, transparent 0.5em) 50% 50%/10em 10em, linear-gradient(to bottom, var(--purple-light), var(--purple-blue)) 0 0/100% 100%;
   background-repeat: no-repeat;
+}
+#teamPage form .soccer-field .player-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  margin: 10px;
+  outline: 2px dashed var(--purple);
+  outline-offset: 5px;
+}
+#teamPage form .search-players-results {
+  max-height: 700px;
+  overflow-y: auto;
+  padding: 10px;
 }
 #teamPage form .search-players-results ul.players-list {
   display: flex;
