@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap");
+body {
+  font-family: "Poppins", Helvetica, sans-serif;
+  color: var(--black);
+}
+
+:root {
+  --white: #ffffff;
+  --black: #343a40;
+  --purple: #8a1f6e;
+  --purple-light: #bb588f;
+  --purple-blue: #552c8a;
+  --pink: #c00f4f;
+  --pink-light: #f7eef7;
+  --gray: #adb5bd;
+  --gray-light: #dee2e6;
+  --gray-lighter: #f7f3f7;
+  --gray-dark: #868e96;
+  --bg-gray-dark: #e9e3e8;
+  --bg-gray-light: #ced4da;
+  --box-shadow: rgba(0,0,0,0.3);
+  --gray-transparent: rgba(247,243,247,0.2);
+}
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+.loading .loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading .loader svg {
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+}
+.loading .loader svg path {
+  fill: var(--purple-light);
+  animation-duration: 1s;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+}
+.loading .loader svg path.path-7 {
+  animation-delay: -1s;
+}
+.loading .loader svg path.path-6 {
+  animation-delay: -0.875s;
+}
+.loading .loader svg path.path-5 {
+  animation-delay: -0.75s;
+}
+.loading .loader svg path.path-4 {
+  animation-delay: -0.625s;
+}
+.loading .loader svg path.path-3 {
+  animation-delay: -0.5s;
+}
+.loading .loader svg path.path-2 {
+  animation-delay: -0.375s;
+}
+.loading .loader svg path.path-1 {
+  animation-delay: -0.25s;
+}
+.loading .loader svg path.path-0 {
+  animation-delay: -0.125s;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+/*# sourceMappingURL=global.css.map */
