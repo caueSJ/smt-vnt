@@ -1,5 +1,5 @@
 body {
-  min-width: 360px;
+  min-width: 500px;
 }
 
 .main {
@@ -13,7 +13,7 @@ body {
   /* Calc main min-height (100vh = total height, 68px = header height, 50px = footer height) */
   min-height: calc(100vh - 68px - 50px);
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .main {
     padding: 50px;
     gap: 50px;

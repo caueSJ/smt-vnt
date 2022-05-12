@@ -1,4 +1,115 @@
+@import './config/breakpoints';
+
 #homePage {
+
+    @include lg {
+        & > div {
+            width: 50%;
+        }
+    }
+
+    div.left {
+        section.info-block {
+            /* Calc main height (100vh = total height, 68px = header height, 50px = footer height, 100px home page padding) */
+            height: calc(100vh - 68px - 50px - 100px);
+        }
+
+        .btn-add-team {
+            text-decoration: none;
+            background: linear-gradient(to bottom, var(--purple-light), var(--purple));
+            padding: 10px;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            color: var(--white);
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .content {
+            /* Calc main max-height (100% = parent total height, 80px = parent header height) */
+            max-height: calc(100% - 80px);
+        }
+    
+        // Table Style
+        .table-wrapper {
+            max-height: 100%;
+            overflow: auto;
+        }
+        
+        table {
+            width: 100%;
+            font-weight: 600;
+            font-size: 	0.875rem;
+            border-collapse: separate;
+    
+            thead {
+                th {
+                    padding: 20px;
+                    text-align: start;
+                    
+                    &:not(:last-child) {
+                        border-right: 1px var(--bg-gray-dark) solid;
+                    }
+    
+                    i {
+                        width: 0.625rem;
+                        float: right;
+                        cursor: pointer;
+                    }
+                }
+    
+                &::after {
+                    content: '';
+                    height: 1rem;
+                    display: table-row;
+                }
+            }
+    
+            tbody {
+                td {
+                    padding: 20px;
+                    border-bottom: 1px solid var(--bg-gray-dark);
+                    word-break: break-all;
+
+                    &:last-child {
+                        text-align: right;
+                    }
+                }
+    
+                tr:hover td {
+                    color: var(--purple-light);
+                    background-color: var(--pink-light);
+                    border-bottom: 1px solid transparent;
+                        
+                    &:first-child {
+                        border-radius: 5px 0 0 5px;
+                    }
+    
+                    &:last-child {
+                        border-radius: 0 5px 5px 0;
+                    }
+    
+                    .action-icons {
+                        visibility: visible;
+                    }
+                }
+    
+                .action-icons {
+                    display: inline-flex;
+                    column-gap: 10px;
+                    visibility: hidden;
+                    cursor: pointer;
+                    filter: brightness(0) saturate(100%) invert(42%) sepia(10%) saturate(3003%) hue-rotate(274deg) brightness(100%) contrast(79%);
+                }
+            }
+        }
+    }
+
     div.right {
         flex: 1;
         display: flex;
@@ -7,12 +118,24 @@
 
         .avg-age {
             display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 20px;
+
+            @include md {
+                flex-direction: row;
+                gap: 20px;
+
+                .avg-age-content {
+                    display: inline-block;
+                    max-width: 50%;
+                }
+            }
 
             .avg-age-content {
                 flex: 1;
-                margin: 0 20px;
 
-                p {
+                h3 {
                     margin-bottom: 16px;
                     font-weight: 600;
                     font-size: 0.875rem;
@@ -40,6 +163,12 @@
 
                             &:hover {
                                 border: 1px solid var(--pink);
+                            }
+
+                            span {
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: block;
                             }
                         }
                     }
@@ -94,91 +223,8 @@
             }
 
             .most-picked {
-                border: 3px dashed var(--purple-light);
-                padding: 5px;
-                border-radius: 50%;
-            }
-            
-        }
-    }
-
-    .btn-add-team {
-        text-decoration: none;
-        background: linear-gradient(to bottom, var(--purple-light), var(--purple));
-        padding: 10px;
-        border-radius: 10px;
-        width: 40px;
-        height: 40px;
-        color: var(--white);
-        font-size: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        user-select: none;
-        cursor: pointer;
-    }
-
-    // Table Style
-    table {
-        width: 100%;
-        font-weight: 600;
-        font-size: 	0.875rem;
-        border-collapse: separate;
-
-        thead {
-            th {
-                padding: 20px;
-                text-align: start;
-                
-                &:first-child {
-                    border-right: 1px var(--bg-gray-dark) solid;
-                }
-
-                i {
-                    width: 0.625rem;
-                    float: right;
-                    cursor: pointer;
-                }
-            }
-
-            &::after {
-                content: '';
-                height: 1rem;
-                display: table-row;
-            }
-        }
-
-        tbody {
-            td {
-                padding: 20px;
-                border-bottom: 1px solid var(--bg-gray-dark);
-            }
-
-            tr:hover td {
-                color: var(--purple-light);
-                background-color: var(--pink-light);
-                border-bottom: 1px solid transparent;
-                    
-                &:first-child {
-                    border-radius: 5px 0 0 5px;
-                }
-
-                &:last-child {
-                    border-radius: 0 5px 5px 0;
-                }
-
-                .action-icons {
-                    visibility: visible;
-                }
-            }
-
-            .action-icons {
-                width: 0.75rem;
-                display: inline-flex;
-                column-gap: 10px;
-                visibility: hidden;
-                cursor: pointer;
-                filter: brightness(0) saturate(100%) invert(42%) sepia(10%) saturate(3003%) hue-rotate(274deg) brightness(100%) contrast(79%);
+                outline: 3px dashed var(--purple-light);
+                outline-offset: 5px;
             }
         }
     }

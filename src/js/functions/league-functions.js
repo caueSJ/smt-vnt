@@ -1,6 +1,11 @@
 import { get } from '../utils';
 import { getLeague } from '../storage/league-storage';
 
+/**
+ * Get last league from Brazil from Football API
+ * 
+ * @returns {Object} League from Football API
+ */
 export const loadLeague = async () => {
     let league = getLeague();
 

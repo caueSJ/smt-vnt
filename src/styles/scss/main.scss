@@ -1,7 +1,7 @@
 @import './config/breakpoints';
 
 body {
-    min-width: 360px;
+    min-width: 500px;
 }
 
 .main {
@@ -15,7 +15,7 @@ body {
     /* Calc main min-height (100vh = total height, 68px = header height, 50px = footer height) */
     min-height: calc(100vh - 68px - 50px);
 
-    @include md {
+    @include lg {
         padding: 50px;
         gap: 50px;
         flex-direction: row;

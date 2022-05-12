@@ -1,6 +1,6 @@
 // Import generic components
-import '../components/Header/Header.js';
-import '../components/Footer/Footer.js';
+import '../components/Header/Header';
+import '../components/Footer/Footer';
 
 import { loadPlayers } from './functions/player-functions';
 import { loadTeams } from './functions/team-functions';
@@ -17,6 +17,8 @@ window.addEventListener('load', async (event) => {
     setLeague(league);
     setPlayers(playerData.players);
     setTeams(teams);
+
+    document.querySelector('.loading').remove();
 
     const resourcesLoaded = new CustomEvent('resourcesLoaded');
     window.dispatchEvent(resourcesLoaded);

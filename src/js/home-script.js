@@ -1,7 +1,7 @@
-import './global.js';
+import './global';
 
 import { getTeams } from './storage/team-storage';
-import { listTeams, listTop5, listStatistics } from './functions/home-page-functions.js';
+import { listTeams, listTop5, listStatistics } from './functions/home-page-functions';
 
 window.addEventListener('resourcesLoaded', function(event) {
     const teams = getTeams();

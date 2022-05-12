@@ -1,9 +1,15 @@
-import { ORDER_ICON, ORDER_MAP, TEAM_TYPE } from '../constants.js';
-import { get } from '../utils/index.js';
-import { listTeams } from './home-page-functions.js';
+import { ORDER_MAP, TEAM_TYPE } from '../constants';
+import { get } from '../utils/index';
 import { getPlayer } from '../storage/player-storage';
 import { getTeams, setTeamBigId } from '../storage/team-storage';
 
+/**
+ * Get teams from a league from Football API
+ * 
+ * @param {Object} league League from Football API
+ * @param {Array} playersTeam List of relationship between players and teams
+ * @returns {Array} Teams from Football API
+ */
 export const loadTeams = async (league, playersTeam) => {
     let teams = getTeams();
 
@@ -42,11 +48,15 @@ export const loadTeams = async (league, playersTeam) => {
     return teams;
 };
 
-export const sortTeams = (event) => {
+/**
+ * Sort teams by field
+ * 
+ * @param {string} field Field to be sorted
+ * @param {number} prevOrder Previous order applyed
+ * @returns {Array} Teams sorted
+ */
+export const sortTeams = (field, prevOrder) => {
     const teams = getTeams();
-    const target = event.currentTarget;
-    const field = target.dataset.sort;
-    const prevOrder = target.dataset.order;
     const newOrder = ORDER_MAP[prevOrder];
 
     const teamsInOrder = teams.slice().sort((a, b) => {
@@ -59,13 +69,15 @@ export const sortTeams = (event) => {
         }
     });
 
-    listTeams(teamsInOrder);
-
-    target.dataset.order = newOrder;
-    target.classList.remove(ORDER_ICON[prevOrder]);
-    target.classList.add(ORDER_ICON[newOrder]);
+    return teamsInOrder;
 };
 
+/**
+ * Calculate teams average age
+ * 
+ * @param {Array} teams All teams
+ * @returns {Array} Array with teams average age
+ */
 export const teamsAgeAvgs = (teams) => {
     const avgs = [];
 

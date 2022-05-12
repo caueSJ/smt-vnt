@@ -1,10 +1,14 @@
 import css from './style.scss';
-import { getInitialLetters } from '../../js/utils';
 
-export default class ChoosePlayer extends HTMLElement {
+export default class Tag extends HTMLElement {
+    
     constructor() {
         super();
         this.build();
+    }
+
+    connectedCallback() {
+        this.shadowRoot.querySelector('.remove-icon').addEventListener('click', this.deleteTag);
     }
 
     build() {
@@ -21,19 +25,21 @@ export default class ChoosePlayer extends HTMLElement {
     }
 
     createHTMLComponent() {
-        const id = this.getAttribute('id') || '';
         const name = this.getAttribute('name') || '';
-        const nationality = this.getAttribute('nationality') || '';
-        const age = JSON.parse(this.getAttribute('age'));
         const template = document.createElement('template');
         template.innerHTML = `
-            <span class="choose-player" data-id="${id}" title="Name: ${name}\nNationality: ${nationality}\nAge: ${age || '-'}">
-                ${getInitialLetters(name)}
-            </span>
+            <div class="tag">
+                <span>${name}</span>
+                <span class="remove-icon">&#10005;</span>
+            </div>
         `;
 
         return template;
     }
+
+    deleteTag(event) {
+        event.currentTarget.parentElement.remove();
+    }
 }
 
-customElements.define('cmp-choose-player', ChoosePlayer);
+customElements.define('cmp-tag', Tag);

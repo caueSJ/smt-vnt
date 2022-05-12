@@ -1,24 +1,60 @@
-import { ACTIONS } from '../constants.js';
-import { playersPicks } from './player-functions.js';
-import { sortTeams, teamsAgeAvgs } from './team-functions.js';
+import { ACTIONS, ORDER_ICON, ORDER_MAP } from '../constants';
+import { playersPicks } from './player-functions';
+import { sortTeams, teamsAgeAvgs } from './team-functions';
 import { removeTeam } from '../storage/team-storage';
 
+/**
+ * Delete team from HTML and localStorage
+ * 
+ * @param {Event} event 
+ */
 export const deleteTeam = (event) => {
     const teamId = event.currentTarget.dataset.id;
     document.querySelector(`#teamsTable tbody tr[data-id="${teamId}"]`).remove();
     removeTeam(+teamId);
 };
 
+/**
+ * Sort teams from HTML table
+ * 
+ * @param {Event} event 
+ */
+export const sortTable = (event) => {
+    const target = event.currentTarget;
+    const sort = target.dataset.sort;
+    const prevOrder = target.dataset.order;
+    const newOrder = ORDER_MAP[prevOrder];
+    const teamsInOrder = sortTeams(sort, prevOrder);
+
+    listTeams(teamsInOrder);
+
+    target.dataset.order = newOrder;
+    target.classList.remove(ORDER_ICON[prevOrder]);
+    target.classList.add(ORDER_ICON[newOrder]);
+    
+    const otherSort = document.querySelector(`[data-sort]:not([data-sort="${sort}"])`);
+    otherSort.classList.remove(ORDER_ICON[1], ORDER_ICON[-1]);
+    otherSort.classList.add(ORDER_ICON[0]);
+};
+
+/**
+ * Add events to teams HTML table
+ */
 export const addTeamTableEvents = () => {
     document.querySelectorAll(`[data-action=${ACTIONS.DELETE}]`).forEach(e => {
         e.addEventListener('click', deleteTeam);
     });
 
     document.querySelectorAll(`[data-sort]`).forEach(e => {
-        e.addEventListener('click', sortTeams);
+        e.addEventListener('click', sortTable);
     });
 };
 
+/**
+ * List teams inside HTML table and add events
+ * 
+ * @param {Array} teams All Teams
+ */
 export const listTeams = (teams) => {
     let teamsHTML = '';
 
@@ -45,17 +81,28 @@ export const listTeams = (teams) => {
     addTeamTableEvents();
 };
 
+/**
+ * List 5 averages inside list
+ * 
+ * @param {string} listId ID from ul used to render list
+ * @param {Array} avgs Array with age averages
+ */
 export const listAvg = (listId, avgs) => {
     let avgHTML = '';
 
     for(let i = 0; i < 5; i++) {
         const avg = avgs[i];
-        avgHTML += `<li><a href="/team.html?id=${avg.team.id}">${avg.team.name} <span>${avg.avg}</span></a></li>`;
+        avgHTML += `<li title="${avg.team.name}"><a href="/team.html?id=${avg.team.id}"><span>${avg.team.name}</span> <b>${avg.avg}</b></a></li>`;
     }
 
     document.querySelector(`#${listId} ul`).innerHTML = avgHTML;
 };
 
+/**
+ * List data inside TOP 5 section
+ * 
+ * @param {Array} teams All teams
+ */
 export const listTop5 = (teams) => {
     const avgs = teamsAgeAvgs(teams);
 
@@ -72,6 +119,12 @@ export const listTop5 = (teams) => {
     }
 };
 
+/**
+ * Update single statistic
+ * 
+ * @param {string} statId ID from statistic to be updated
+ * @param {Object} info Statistic information
+ */
 export const updateStatistic = (statId, info) => {
     const stat = document.querySelector(`#${statId}`);
     const display = `<span title="${info.player.name}">${info.player.initials}</span>`;
@@ -80,6 +133,11 @@ export const updateStatistic = (statId, info) => {
     stat.querySelector('.player-photo').innerHTML = display;
 };
 
+/**
+ * Update data inside statistics
+ * 
+ * @param {Array} teams All teams
+ */
 export const listStatistics = (teams) => {
     const picks = playersPicks(teams);
 
