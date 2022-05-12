@@ -81,11 +81,14 @@
   height: 120px;
   border: 1px solid var(--gray-light);
   border-radius: 5px;
-  overflow: hidden;
+  overflow: auto;
 }
 #teamPage form .form-group .input-tag .tag-list {
   padding: 10px;
-  height: 120px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
 }
 #teamPage form .form-group .input-tag .tag-list .tag {
   border-radius: 15px;
@@ -95,13 +98,14 @@
   color: var(--white);
   background-color: var(--pink);
 }
-#teamPage form .form-group .input-tag .tag-list input {
+#teamPage form .form-group .input-tag input {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   border: 0;
+  width: 25%;
 }
-#teamPage form .form-group .input-tag .tag-list input:focus {
+#teamPage form .form-group .input-tag input:focus {
   outline: none;
 }
 @media (min-width: 768px) {

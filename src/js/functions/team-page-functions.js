@@ -89,19 +89,55 @@ export const initSearch = () => {
     search({ currentTarget: { value: '' }});
 };
 
+export const getTags = () => {
+    const tagsHTML = Array.from(document.getElementsByClassName('tag'));
+    const tagList = tagsHTML.map(tag => {
+        return tag.textContent.trim();
+    });
+
+    return tagList;
+}
+
+const createTagRemoverButton = () => {
+    const removeTagButton = document.createElement('div');
+    removeTagButton.classList.add('remove-icon');
+    
+    removeTagButton.insertAdjacentHTML('afterbegin', `
+        <i class="fa-solid fa-close"></i>
+    `);
+    
+    removeTagButton.addEventListener('click', deleteTag);
+
+    return removeTagButton.outerHTML;
+}
+
+const createTag = (name) => {
+    const tag = document.createElement('div');
+    const removeTagButton = createTagRemoverButton();
+
+    tag.classList.add('tag');
+
+    tag.insertAdjacentHTML('afterbegin', `
+        <span>${name} </span>
+        ${removeTagButton}
+    `);
+
+    return tag;
+}
+
 export const insertTag = (event) => {
-    const newTag = event.currentTarget.value;
-    let tagList = [];
-    if ((event.keyCode === 13 || event.keyCode === 59) && tag.trim().length > 0) {
-        const tagDivs = Array.from(document.getElementsByClassName('tag'));
-        tagDivs.forEach(tag => {
-            tagList.push(tag.firstChild.innerText);
-        });
-        if (tagList.find(tag => tag === newTag)) {
+    const newTag = event.currentTarget.value.trim();
+    const tagList = getTags();
+
+    if ((event.keyCode === 13 || event.keyCode === 59) && newTag.length > 0) {
+        event.preventDefault();
+
+        if (tagList.includes(newTag)) {
+            event.currentTarget.value = null;
             return;
         }
 
-        // Add new tag to tag list here
+        document.querySelector('.tag-list').insertAdjacentElement('beforeend', createTag(newTag));
         event.currentTarget.value = null;
     }
 };
@@ -141,10 +177,7 @@ export const submitForm = (event) => {
         return;
     }
 
-    const tagsHTML = Array.from(form.querySelectorAll('.tag-list .tag'));
-    const tags = tagsHTML.map(tag => {
-        return tag.textContent.trim();
-    });
+    const tags = getTags();
 
     const players = getChoosePlayers();
 
@@ -199,6 +232,11 @@ const validateInput = (event) => {
     }
 }
 
+const deleteTag = (event) => {
+    event.currentTarget.parentElement.remove();
+    // Remove from local storage here
+}
+
 const addValidationListeners = (input) => {
     input.addEventListener('invalid', (event) => validateInput(event));
     input.addEventListener('blur', validateInput);
@@ -211,6 +249,9 @@ export const addPageEvents = () => {
 
     const tagInput = document.getElementById('tagInput');
     tagInput.addEventListener('keydown', insertTag);
+
+    const removeTagButton = document.querySelectorAll('.remove-icon');
+    removeTagButton.forEach(icon => icon.addEventListener('click', deleteTag));
 
     const form = document.getElementById('teamForm');
     form.addEventListener('submit', submitForm);
