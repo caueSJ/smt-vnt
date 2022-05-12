@@ -8,7 +8,7 @@ import { addPageEvents, loadTeamData, initSearch } from './functions/team-page-f
 window.addEventListener('resourcesLoaded', async (event) => {
     const params =  getUrlParams();
 
-    if(params.id) {
+    if (params.id) {
         const team = getTeam(+params.id);
         loadTeamData(team);
     }

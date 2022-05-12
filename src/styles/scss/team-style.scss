@@ -85,13 +85,14 @@
                 }
             }
 
-            // FOCUS STYLE
-            &:focus-within {
-                input, textarea, select {
-                    outline: 1px solid var(--pink);
-                }
+            // ERROR STYLE
+            &.error {
                 label {
                     color: var(--pink);
+                }
+
+                input, input[type="radio"] {
+                    outline: 1px solid var(--pink);
                 }
             }
 
@@ -115,6 +116,8 @@
                     }
 
                     input {
+                        -moz-appearance: none;
+                        -webkit-appearance: none;
                         appearance: none;
                         border: 0;
 

@@ -106,10 +106,42 @@ export const insertTag = (event) => {
     }
 };
 
+const validateName = (name) => {
+    return (name === '') ? false : true;
+}
+
+const validateWebsite = (website) => {
+    const regex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+    return regex.test(website);
+}
+
+const validateForm = (form) => {
+    const validName = validateName(form.name.value.trim());
+    const validWebsite = validateWebsite(form.website.value.trim());
+
+    if (!validName) {
+        form.name.value = '';
+        form.name.parentElement.classList.add('error');
+    }
+    
+    if (!validWebsite) {
+        form.website.value = '';
+        form.website.parentElement.classList.add('error');
+    }
+
+    return (validName && validWebsite);
+};
+
 export const submitForm = (event) => {
     event.preventDefault();
 
     const form = event.currentTarget;
+
+    if (!validateForm(form)) {
+        return;
+    }
+
+    console.log('Passei');
 
     const tagsHTML = Array.from(form.querySelectorAll('.tag-list .tag'));
     const tags = tagsHTML.map(tag => {
@@ -127,9 +159,13 @@ export const submitForm = (event) => {
         tags,
     };
 
-    const params =  getUrlParams();
+    console.log('Fui longe');
 
-    if(params.id) {
+    const params = getUrlParams();
+
+    console.log('Morri');
+    return;
+    if (params.id) {
         team.id = +params.id;
         editTeam(team);
     } else {
@@ -148,6 +184,32 @@ const changeFormation = (event) => {
     clearChoosePlayers();
 };
 
+const validateInput = (event) => {
+    let hasError = false;
+    const input = event.currentTarget;
+
+    if (input.value.trim().length > 0) {
+        for (const error in input.validity) {
+            if (input.validity[error] && !input.validity.valid) {
+                hasError = true;
+            }
+        }
+    } else {
+        hasError = true;
+    }
+
+    if (hasError) {
+        input.parentElement.classList.add('error');
+    } else {
+        input.parentElement.classList.remove('error');
+    }
+}
+
+const addValidationListeners = (input) => {
+    input.addEventListener('invalid', (event) => validateInput(event));
+    input.addEventListener('blur', validateInput);
+};
+
 export const addPageEvents = () => {
     const searchInput = document.getElementById('searchPlayer');
     searchInput.addEventListener('keyup', search);
@@ -161,4 +223,7 @@ export const addPageEvents = () => {
 
     const selectFormation = document.getElementById('teamFormation');
     selectFormation.addEventListener('change', changeFormation);
+
+    const inputsToValidate = document.querySelectorAll('[required]');
+    inputsToValidate.forEach(input => addValidationListeners(input));
 };

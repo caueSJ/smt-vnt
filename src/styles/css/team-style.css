@@ -71,11 +71,11 @@
   font-weight: 400;
   color: var(--gray-dark);
 }
-#teamPage form .form-group:focus-within input, #teamPage form .form-group:focus-within textarea, #teamPage form .form-group:focus-within select {
-  outline: 1px solid var(--pink);
-}
-#teamPage form .form-group:focus-within label {
+#teamPage form .form-group.error label {
   color: var(--pink);
+}
+#teamPage form .form-group.error input, #teamPage form .form-group.error input[type=radio] {
+  outline: 1px solid var(--pink);
 }
 #teamPage form .form-group .input-tag {
   height: 120px;
@@ -96,6 +96,8 @@
   background-color: var(--pink);
 }
 #teamPage form .form-group .input-tag .tag-list input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
   border: 0;
 }
