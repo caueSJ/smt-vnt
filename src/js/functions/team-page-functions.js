@@ -141,8 +141,6 @@ export const submitForm = (event) => {
         return;
     }
 
-    console.log('Passei');
-
     const tagsHTML = Array.from(form.querySelectorAll('.tag-list .tag'));
     const tags = tagsHTML.map(tag => {
         return tag.textContent.trim();
@@ -159,12 +157,8 @@ export const submitForm = (event) => {
         tags,
     };
 
-    console.log('Fui longe');
-
     const params = getUrlParams();
 
-    console.log('Morri');
-    return;
     if (params.id) {
         team.id = +params.id;
         editTeam(team);
