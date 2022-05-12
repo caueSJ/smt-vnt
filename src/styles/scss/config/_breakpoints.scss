@@ -34,3 +34,9 @@ $screen-xxl-min: 1400px;
         @content;
     }
 }
+
+@mixin customSize($screen) {
+    @media (min-width: #{$screen+'px'}) {
+        @content;
+    }
+}

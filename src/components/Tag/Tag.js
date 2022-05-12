@@ -38,7 +38,8 @@ export default class Tag extends HTMLElement {
     }
 
     deleteTag(event) {
-        event.currentTarget.parentElement.remove();
+        // Remove Shadow DOM host element
+        document.querySelector(`cmp-tag[name="${event.currentTarget.parentNode.firstElementChild.innerText}"`).remove();
     }
 }
 

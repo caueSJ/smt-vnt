@@ -129,7 +129,7 @@ export const submitForm = (event) => {
 
         const message = form.querySelector('.message');
         if(!message) {
-            form.insertAdjacentHTML('beforeend', '<span class="message">Team successfully updated</span>');
+            form.insertAdjacentHTML('beforeend', '<span class="message">Team successfully updated!</span>');
         }
     } else {
         const newTeamId = addTeam(team);

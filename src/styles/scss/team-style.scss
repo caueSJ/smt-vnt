@@ -296,8 +296,8 @@
                 justify-content: center;
                 align-items: center;
                 color: var(--white);
-                width: 50px;
-                height: 50px;
+                width: 34px;
+                height: 34px;
                 background-color: rgba(255, 255, 255, 0.7);
                 border: 1px solid var(--black);
                 border-radius: 50%;
@@ -308,6 +308,11 @@
                 @include sm {
                     width: 70px;
                     height: 70px;
+                }
+
+                @include customSize(440) {
+                    width: 50px;
+                    height: 50px;
                 }
 
                 &:empty {
@@ -392,6 +397,13 @@
                 width: calc(50% - 25px);
                 min-width: 490px;
             }
+        }
+
+        .message {
+            color: var(--white);
+            background-color: green;
+            padding: 5px;
+            border-radius: 5px;
         }
     }
 }

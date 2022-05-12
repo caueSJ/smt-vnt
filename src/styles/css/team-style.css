@@ -231,8 +231,8 @@
   justify-content: center;
   align-items: center;
   color: var(--white);
-  width: 50px;
-  height: 50px;
+  width: 34px;
+  height: 34px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--black);
   border-radius: 50%;
@@ -244,6 +244,12 @@
   #teamPage form .soccer-field .player-circle {
     width: 70px;
     height: 70px;
+  }
+}
+@media (min-width: 440px) {
+  #teamPage form .soccer-field .player-circle {
+    width: 50px;
+    height: 50px;
   }
 }
 #teamPage form .soccer-field .player-circle:empty::before {
@@ -316,6 +322,12 @@
     width: calc(50% - 25px);
     min-width: 490px;
   }
+}
+#teamPage form .message {
+  color: var(--white);
+  background-color: green;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=team-style.css.map */
