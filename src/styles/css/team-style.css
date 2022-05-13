@@ -240,16 +240,16 @@
   outline: 2px dashed var(--purple);
   outline-offset: 5px;
 }
-@media (min-width: 576px) {
-  #teamPage form .soccer-field .player-circle {
-    width: 70px;
-    height: 70px;
-  }
-}
 @media (min-width: 440px) {
   #teamPage form .soccer-field .player-circle {
     width: 50px;
     height: 50px;
+  }
+}
+@media (min-width: 576px) {
+  #teamPage form .soccer-field .player-circle {
+    width: 70px;
+    height: 70px;
   }
 }
 #teamPage form .soccer-field .player-circle:empty::before {
